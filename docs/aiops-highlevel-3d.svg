@@ -1,3 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="920" viewBox="0 0 1500 920">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1022"/>
+      <stop offset="100%" stop-color="#1d2b4a"/>
+    </linearGradient>
+    <linearGradient id="panelA" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#1d4ed8"/></linearGradient>
+    <linearGradient id="panelB" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#047857"/></linearGradient>
+    <linearGradient id="panelC" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#6d28d9"/></linearGradient>
+    <linearGradient id="panelD" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#000" flood-opacity="0.40"/>
+    </filter>
+    <marker id="arrow" markerWidth="11" markerHeight="11" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L0,10 L10,5 z" fill="#e2e8f0"/>
+    </marker>
+  </defs>
+
+  <rect width="1500" height="920" fill="url(#bg)"/>
+  <text x="750" y="56" fill="#f1f5f9" font-size="34" font-family="Segoe UI, Arial" text-anchor="middle" font-weight="700">Phi-4 AIOps Copilot — 3D SLT Architecture with Technical Icons</text>
+  <text x="750" y="88" fill="#94a3b8" font-size="18" font-family="Segoe UI, Arial" text-anchor="middle">High-level enterprise architecture for Azure + VMware Windows operations</text>
+
+  <!-- Left: Azure node -->
+  <g filter="url(#shadow)">
+    <polygon points="95,210 430,210 495,258 160,258" fill="url(#panelA)"/>
+    <polygon points="160,258 495,258 495,495 160,495" fill="#1e40af"/>
+    <polygon points="430,210 495,258 495,495 430,447" fill="#1e3a8a"/>
+    <text x="292" y="245" fill="#ffffff" font-size="24" font-family="Segoe UI, Arial" font-weight="700" text-anchor="middle">Azure Windows System</text>
+
+    <!-- Server icon -->
+    <rect x="195" y="292" width="74" height="120" rx="8" fill="#dbeafe"/>
+    <rect x="204" y="305" width="56" height="20" rx="4" fill="#60a5fa"/>
+    <rect x="204" y="334" width="56" height="20" rx="4" fill="#60a5fa"/>
+    <rect x="204" y="363" width="56" height="20" rx="4" fill="#60a5fa"/>
+    <circle cx="252" cy="397" r="4" fill="#2563eb"/>
+
+    <!-- Cloud icon -->
+    <ellipse cx="345" cy="338" rx="58" ry="30" fill="#bfdbfe"/>
+    <ellipse cx="318" cy="330" rx="24" ry="18" fill="#dbeafe"/>
+    <ellipse cx="368" cy="328" rx="27" ry="20" fill="#dbeafe"/>
+
+    <text x="282" y="444" fill="#dbeafe" font-size="17" font-family="Segoe UI, Arial">• Event Collector</text>
+    <text x="282" y="468" fill="#dbeafe" font-size="17" font-family="Segoe UI, Arial">• AIOps API + Ollama</text>
+  </g>
+
+  <!-- Right: VMware node -->
+  <g filter="url(#shadow)">
+    <polygon points="1010,210 1345,210 1410,258 1075,258" fill="url(#panelB)"/>
+    <polygon points="1075,258 1410,258 1410,495 1075,495" fill="#065f46"/>
+    <polygon points="1345,210 1410,258 1410,495 1345,447" fill="#064e3b"/>
+    <text x="1178" y="245" fill="#ffffff" font-size="24" font-family="Segoe UI, Arial" font-weight="700" text-anchor="middle">VMware Windows System</text>
+
+    <!-- Hypervisor/server icon -->
+    <rect x="1120" y="292" width="78" height="120" rx="8" fill="#d1fae5"/>
+    <rect x="1129" y="305" width="60" height="20" rx="4" fill="#34d399"/>
+    <rect x="1129" y="334" width="60" height="20" rx="4" fill="#34d399"/>
+    <rect x="1129" y="363" width="60" height="20" rx="4" fill="#34d399"/>
+    <circle cx="1181" cy="397" r="4" fill="#059669"/>
+
+    <!-- Network icon -->
+    <circle cx="1290" cy="325" r="14" fill="#a7f3d0"/>
+    <circle cx="1255" cy="365" r="12" fill="#a7f3d0"/>
+    <circle cx="1326" cy="365" r="12" fill="#a7f3d0"/>
+    <line x1="1290" y1="339" x2="1255" y2="354" stroke="#d1fae5" stroke-width="4"/>
+    <line x1="1290" y1="339" x2="1326" y2="354" stroke="#d1fae5" stroke-width="4"/>
+
+    <text x="1172" y="444" fill="#d1fae5" font-size="17" font-family="Segoe UI, Arial">• Event Collector</text>
+    <text x="1172" y="468" fill="#d1fae5" font-size="17" font-family="Segoe UI, Arial">• AIOps API + Ollama</text>
+  </g>
+
+  <!-- Center intelligence layer -->
+  <g filter="url(#shadow)">
+    <polygon points="400,500 1100,500 1170,555 470,555" fill="url(#panelC)"/>
+    <polygon points="470,555 1170,555 1170,790 470,790" fill="#5b21b6"/>
+    <polygon points="1100,500 1170,555 1170,790 1100,735" fill="#4c1d95"/>
+    <text x="785" y="540" fill="#ffffff" font-size="28" font-family="Segoe UI, Arial" text-anchor="middle" font-weight="700">Shared AIOps Intelligence Layer</text>
+
+    <!-- database icon -->
+    <ellipse cx="565" cy="628" rx="52" ry="16" fill="#ddd6fe"/>
+    <rect x="513" y="628" width="104" height="62" fill="#c4b5fd"/>
+    <ellipse cx="565" cy="690" rx="52" ry="16" fill="#a78bfa"/>
+
+    <!-- AI gear icon -->
+    <circle cx="790" cy="655" r="40" fill="#c4b5fd"/>
+    <circle cx="790" cy="655" r="16" fill="#7c3aed"/>
+    <rect x="786" y="605" width="8" height="20" fill="#ddd6fe"/>
+    <rect x="786" y="685" width="8" height="20" fill="#ddd6fe"/>
+    <rect x="740" y="651" width="20" height="8" fill="#ddd6fe"/>
+    <rect x="820" y="651" width="20" height="8" fill="#ddd6fe"/>
+
+    <!-- shield icon -->
+    <path d="M990 615 L1038 632 L1032 684 C1023 699 1009 709 990 716 C971 709 957 699 948 684 L942 632 Z" fill="#ddd6fe"/>
+    <path d="M990 633 L1018 643 L1014 676 C1009 684 1002 690 990 695 C978 690 971 684 966 676 L962 643 Z" fill="#8b5cf6"/>
+
+    <text x="640" y="735" fill="#ede9fe" font-size="18" font-family="Segoe UI, Arial">RAG + Log Correlation</text>
+    <text x="790" y="735" fill="#ede9fe" font-size="18" font-family="Segoe UI, Arial" text-anchor="middle">Root Cause + Remediation AI</text>
+    <text x="1020" y="735" fill="#ede9fe" font-size="18" font-family="Segoe UI, Arial" text-anchor="middle">Governance + Guardrails</text>
+  </g>
+
+  <!-- Top user/teams system -->
+  <g filter="url(#shadow)">
+    <polygon points="520,118 980,118 1048,166 588,166" fill="url(#panelD)"/>
+    <polygon points="588,166 1048,166 1048,350 588,350" fill="#b45309"/>
+    <polygon points="980,118 1048,166 1048,350 980,302" fill="#92400e"/>
+    <text x="810" y="154" fill="#111827" font-size="26" font-family="Segoe UI, Arial" font-weight="700" text-anchor="middle">Operations & Copilot Experience</text>
+
+    <!-- Teams icon style bubble -->
+    <rect x="654" y="213" width="100" height="80" rx="12" fill="#1d4ed8"/>
+    <text x="704" y="263" fill="#ffffff" font-size="42" font-family="Segoe UI, Arial" text-anchor="middle" font-weight="700">T</text>
+    <circle cx="770" cy="242" r="28" fill="#93c5fd"/>
+
+    <!-- user icon -->
+    <circle cx="915" cy="232" r="24" fill="#fde68a"/>
+    <rect x="885" y="262" width="60" height="40" rx="20" fill="#fde68a"/>
+
+    <text x="820" y="318" fill="#fffbeb" font-size="18" font-family="Segoe UI, Arial" text-anchor="middle">@server-name queries, actionable responses, human approval</text>
+  </g>
+
+  <!-- Flow arrows -->
+  <line x1="495" y1="372" x2="470" y2="590" stroke="#e2e8f0" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="1075" y1="372" x2="1170" y2="590" stroke="#e2e8f0" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="820" y1="350" x2="820" y2="500" stroke="#e2e8f0" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <text x="430" y="500" fill="#cbd5e1" font-size="15" font-family="Segoe UI, Arial">Ingest + Index</text>
+  <text x="1138" y="500" fill="#cbd5e1" font-size="15" font-family="Segoe UI, Arial">Ingest + Index</text>
+  <text x="838" y="438" fill="#cbd5e1" font-size="15" font-family="Segoe UI, Arial">Query + Explain</text>
+
+  <text x="750" y="884" fill="#64748b" font-size="14" font-family="Segoe UI, Arial" text-anchor="middle">3D SLT visual with server/system/technical icons for README and architecture presentations</text>
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
