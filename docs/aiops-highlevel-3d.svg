@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="860" viewBox="0 0 1400 860" role="img" aria-label="Phi-4 AIOps Copilot high-level architecture">
+  <rect width="1400" height="860" fill="#0f172a"/>
+  <text x="700" y="46" fill="#e2e8f0" font-size="30" font-family="Arial" text-anchor="middle">Phi-4 AIOps Copilot - High-Level Architecture</text>
+  <text x="700" y="74" fill="#94a3b8" font-size="16" font-family="Arial" text-anchor="middle">Azure + VMware Windows systems, local AI reasoning, Teams operations</text>
+
+  <!-- Azure block -->
+  <rect x="70" y="140" width="340" height="260" rx="14" fill="#1d4ed8"/>
+  <text x="240" y="175" fill="#ffffff" font-size="22" font-family="Arial" text-anchor="middle">Azure Windows VM</text>
+  <rect x="110" y="210" width="76" height="130" rx="8" fill="#dbeafe"/>
+  <rect x="120" y="224" width="56" height="20" rx="4" fill="#60a5fa"/>
+  <rect x="120" y="252" width="56" height="20" rx="4" fill="#60a5fa"/>
+  <rect x="120" y="280" width="56" height="20" rx="4" fill="#60a5fa"/>
+  <circle cx="166" cy="322" r="4" fill="#1d4ed8"/>
+  <ellipse cx="305" cy="245" rx="56" ry="28" fill="#bfdbfe"/>
+  <ellipse cx="278" cy="240" rx="23" ry="16" fill="#dbeafe"/>
+  <ellipse cx="330" cy="238" rx="25" ry="18" fill="#dbeafe"/>
+  <text x="240" y="360" fill="#dbeafe" font-size="15" font-family="Arial" text-anchor="middle">Event Collector + API + Ollama + RAG</text>
+
+  <!-- VMware block -->
+  <rect x="990" y="140" width="340" height="260" rx="14" fill="#047857"/>
+  <text x="1160" y="175" fill="#ffffff" font-size="22" font-family="Arial" text-anchor="middle">VMware Windows VM</text>
+  <rect x="1030" y="210" width="76" height="130" rx="8" fill="#d1fae5"/>
+  <rect x="1040" y="224" width="56" height="20" rx="4" fill="#34d399"/>
+  <rect x="1040" y="252" width="56" height="20" rx="4" fill="#34d399"/>
+  <rect x="1040" y="280" width="56" height="20" rx="4" fill="#34d399"/>
+  <circle cx="1086" cy="322" r="4" fill="#047857"/>
+  <circle cx="1235" cy="235" r="14" fill="#a7f3d0"/>
+  <circle cx="1205" cy="270" r="12" fill="#a7f3d0"/>
+  <circle cx="1265" cy="270" r="12" fill="#a7f3d0"/>
+  <line x1="1235" y1="249" x2="1205" y2="261" stroke="#d1fae5" stroke-width="3"/>
+  <line x1="1235" y1="249" x2="1265" y2="261" stroke="#d1fae5" stroke-width="3"/>
+  <text x="1160" y="360" fill="#d1fae5" font-size="15" font-family="Arial" text-anchor="middle">Event Collector + API + Ollama + RAG</text>
+
+  <!-- Teams / user block -->
+  <rect x="450" y="120" width="500" height="180" rx="14" fill="#b45309"/>
+  <text x="700" y="156" fill="#111827" font-size="22" font-family="Arial" text-anchor="middle">Operations &amp; Copilot Experience</text>
+  <rect x="540" y="190" width="92" height="72" rx="10" fill="#1d4ed8"/>
+  <text x="586" y="236" fill="#ffffff" font-size="38" font-family="Arial" text-anchor="middle">T</text>
+  <circle cx="670" cy="222" r="28" fill="#93c5fd"/>
+  <circle cx="820" cy="215" r="24" fill="#fde68a"/>
+  <rect x="792" y="240" width="56" height="36" rx="18" fill="#fde68a"/>
+  <text x="700" y="286" fill="#fffbeb" font-size="15" font-family="Arial" text-anchor="middle">@server query, anomaly explanation, remediation guidance</text>
+
+  <!-- Shared intelligence block -->
+  <rect x="300" y="450" width="800" height="300" rx="16" fill="#6d28d9"/>
+  <text x="700" y="492" fill="#ffffff" font-size="25" font-family="Arial" text-anchor="middle">Shared AIOps Intelligence Layer</text>
+
+  <ellipse cx="470" cy="575" rx="50" ry="16" fill="#ddd6fe"/>
+  <rect x="420" y="575" width="100" height="68" fill="#c4b5fd"/>
+  <ellipse cx="470" cy="643" rx="50" ry="16" fill="#a78bfa"/>
+  <text x="470" y="680" fill="#ede9fe" font-size="14" font-family="Arial" text-anchor="middle">Log Store / RAG</text>
+
+  <circle cx="700" cy="608" r="42" fill="#c4b5fd"/>
+  <circle cx="700" cy="608" r="16" fill="#7c3aed"/>
+  <text x="700" y="680" fill="#ede9fe" font-size="14" font-family="Arial" text-anchor="middle">Phi-4 Reasoning</text>
+
+  <path d="M930 565 L972 580 L966 632 C958 647 946 656 930 662 C914 656 902 647 894 632 L888 580 Z" fill="#ddd6fe"/>
+  <path d="M930 582 L955 591 L951 623 C946 631 940 637 930 641 C920 637 914 631 909 623 L905 591 Z" fill="#8b5cf6"/>
+  <text x="930" y="680" fill="#ede9fe" font-size="14" font-family="Arial" text-anchor="middle">Governance Guardrails</text>
+
+  <!-- arrows -->
+  <line x1="410" y1="320" x2="360" y2="450" stroke="#e2e8f0" stroke-width="4"/>
+  <polygon points="360,450 370,428 347,434" fill="#e2e8f0"/>
+
+  <line x1="990" y1="320" x2="1040" y2="450" stroke="#e2e8f0" stroke-width="4"/>
+  <polygon points="1040,450 1029,428 1052,434" fill="#e2e8f0"/>
+
+  <line x1="700" y1="300" x2="700" y2="450" stroke="#e2e8f0" stroke-width="4"/>
+  <polygon points="700,450 690,428 710,428" fill="#e2e8f0"/>
+
+  <text x="340" y="410" fill="#cbd5e1" font-size="13" font-family="Arial">Ingest + Index</text>
+  <text x="1010" y="410" fill="#cbd5e1" font-size="13" font-family="Arial">Ingest + Index</text>
+  <text x="714" y="390" fill="#cbd5e1" font-size="13" font-family="Arial">Query + Explain</text>
+</svg>
