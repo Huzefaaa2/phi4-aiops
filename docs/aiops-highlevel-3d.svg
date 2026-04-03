@@ -12,7 +12,7 @@
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#e2e8f0"/></marker>
   </defs>
   <rect width="1400" height="900" fill="url(#bg)"/>
-  <text x="700" y="60" fill="#e2e8f0" font-size="34" font-family="Segoe UI, Arial" text-anchor="middle" font-weight="700">Phi-4 AIOps Copilot — 3D High-Level Architecture</text>
+  <text x="700" y="60" fill="#e2e8f0" font-size="34" font-family="Segoe UI, Arial" text-anchor="middle" font-weight="700">Phi-4 AIOps Copilot — High-Level Architecture</text>
   <text x="700" y="95" fill="#94a3b8" font-size="18" font-family="Segoe UI, Arial" text-anchor="middle">Dual deployment on Azure + VMware with private inference and Teams operations</text>
 
   <g filter="url(#shadow)">
