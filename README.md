@@ -33,6 +33,12 @@ You get:
 
 > These diagrams are intentionally colorful to make architecture reviews, stakeholder walkthroughs, and design workshops easier.
 
+## 3D high-level architecture image (SLT/STL-style visual)
+
+Below is a 3D-style high-level architecture illustration you can use in presentations and executive walkthroughs.
+
+![Phi-4 AIOps Copilot 3D High-Level Architecture](docs/aiops-highlevel-3d.svg)
+
 ### 1) C4 Level 1 — System Context
 
 ```mermaid

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1020"/>
+      <stop offset="100%" stop-color="#1f2a44"/>
+    </linearGradient>
+    <linearGradient id="topAzure" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#2563eb"/></linearGradient>
+    <linearGradient id="topVmw" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#059669"/></linearGradient>
+    <linearGradient id="topCore" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#c4b5fd"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
+    <linearGradient id="topUser" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fcd34d"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#e2e8f0"/></marker>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg)"/>
+  <text x="700" y="60" fill="#e2e8f0" font-size="34" font-family="Segoe UI, Arial" text-anchor="middle" font-weight="700">Phi-4 AIOps Copilot — 3D High-Level Architecture</text>
+  <text x="700" y="95" fill="#94a3b8" font-size="18" font-family="Segoe UI, Arial" text-anchor="middle">Dual deployment on Azure + VMware with private inference and Teams operations</text>
+
+  <g filter="url(#shadow)">
+    <polygon points="120,220 390,220 450,260 180,260" fill="url(#topAzure)"/>
+    <polygon points="180,260 450,260 450,460 180,460" fill="#1d4ed8"/>
+    <polygon points="390,220 450,260 450,460 390,420" fill="#1e40af"/>
+    <text x="285" y="250" fill="#fff" font-size="22" font-family="Segoe UI, Arial" text-anchor="middle" font-weight="700">Azure Windows VM</text>
+    <text x="315" y="300" fill="#dbeafe" font-size="16" font-family="Segoe UI, Arial">• Event Collector</text>
+    <text x="315" y="330" fill="#dbeafe" font-size="16" font-family="Segoe UI, Arial">• AIOps API (FastAPI)</text>
+    <text x="315" y="360" fill="#dbeafe" font-size="16" font-family="Segoe UI, Arial">• Ollama + Phi-4</text>
+    <text x="315" y="390" fill="#dbeafe" font-size="16" font-family="Segoe UI, Arial">• Local Vector Store</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <polygon points="950,220 1220,220 1280,260 1010,260" fill="url(#topVmw)"/>
+    <polygon points="1010,260 1280,260 1280,460 1010,460" fill="#047857"/>
+    <polygon points="1220,220 1280,260 1280,460 1220,420" fill="#065f46"/>
+    <text x="1115" y="250" fill="#fff" font-size="22" font-family="Segoe UI, Arial" text-anchor="middle" font-weight="700">VMware Windows VM</text>
+    <text x="1145" y="300" fill="#d1fae5" font-size="16" font-family="Segoe UI, Arial">• Event Collector</text>
+    <text x="1145" y="330" fill="#d1fae5" font-size="16" font-family="Segoe UI, Arial">• AIOps API (FastAPI)</text>
+    <text x="1145" y="360" fill="#d1fae5" font-size="16" font-family="Segoe UI, Arial">• Ollama + Phi-4</text>
+    <text x="1145" y="390" fill="#d1fae5" font-size="16" font-family="Segoe UI, Arial">• Local Vector Store</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <polygon points="430,470 970,470 1030,520 490,520" fill="url(#topCore)"/>
+    <polygon points="490,520 1030,520 1030,730 490,730" fill="#6d28d9"/>
+    <polygon points="970,470 1030,520 1030,730 970,680" fill="#5b21b6"/>
+    <text x="730" y="510" fill="#fff" font-size="24" font-family="Segoe UI, Arial" text-anchor="middle" font-weight="700">Shared AIOps Intelligence Layer</text>
+    <text x="560" y="565" fill="#ede9fe" font-size="17" font-family="Segoe UI, Arial">• Log Correlation + RAG Search</text>
+    <text x="560" y="595" fill="#ede9fe" font-size="17" font-family="Segoe UI, Arial">• Root Cause Analysis + Confidence Score</text>
+    <text x="560" y="625" fill="#ede9fe" font-size="17" font-family="Segoe UI, Arial">• Remediation Suggestions + PowerShell Guidance</text>
+    <text x="560" y="655" fill="#ede9fe" font-size="17" font-family="Segoe UI, Arial">• Governance, Guardrails, and Auditability</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <polygon points="530,130 860,130 920,170 590,170" fill="url(#topUser)"/>
+    <polygon points="590,170 920,170 920,320 590,320" fill="#d97706"/>
+    <polygon points="860,130 920,170 920,320 860,280" fill="#b45309"/>
+    <text x="725" y="160" fill="#111827" font-size="24" font-family="Segoe UI, Arial" text-anchor="middle" font-weight="700">Operations Experience</text>
+    <text x="760" y="215" fill="#fffbeb" font-size="16" font-family="Segoe UI, Arial">• Microsoft Teams / Copilot Chat</text>
+    <text x="760" y="245" fill="#fffbeb" font-size="16" font-family="Segoe UI, Arial">• @server query pattern</text>
+    <text x="760" y="275" fill="#fffbeb" font-size="16" font-family="Segoe UI, Arial">• Human approval workflow</text>
+  </g>
+
+  <line x1="450" y1="350" x2="490" y2="560" stroke="#e2e8f0" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="1010" y1="350" x2="1030" y2="560" stroke="#e2e8f0" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="760" y1="320" x2="760" y2="470" stroke="#e2e8f0" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <text x="475" y="455" fill="#cbd5e1" font-size="14" font-family="Segoe UI, Arial">Ingest + Analyze</text>
+  <text x="1015" y="455" fill="#cbd5e1" font-size="14" font-family="Segoe UI, Arial">Ingest + Analyze</text>
+  <text x="780" y="405" fill="#cbd5e1" font-size="14" font-family="Segoe UI, Arial">Query + Explain</text>
+  <text x="700" y="850" fill="#64748b" font-size="14" font-family="Segoe UI, Arial" text-anchor="middle">Generated architecture illustration for README (SVG scalable image)</text>
+</svg>
