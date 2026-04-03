@@ -29,6 +29,147 @@ You get:
 
 ---
 
+## C4 architecture diagrams (Mermaid)
+
+> These diagrams are intentionally colorful to make architecture reviews, stakeholder walkthroughs, and design workshops easier.
+
+### 1) C4 Level 1 — System Context
+
+```mermaid
+C4Context
+title Phi-4 AIOps Copilot - System Context
+Person(admin, "IT Administrator", "Queries incidents, reviews AI recommendations")
+Person(sre, "SRE / Platform Engineer", "Maintains reliability and automation")
+System_Boundary(org, "Enterprise Operations Boundary") {
+  System(aiops, "Phi-4 AIOps Copilot", "Private AI reasoning for Windows operations")
+  System_Ext(teams, "Microsoft Teams", "Conversational operations channel")
+  System_Ext(siem, "SIEM / SOC", "Security and incident systems")
+  System_Ext(cmdb, "CMDB / ITSM", "Change and asset context")
+}
+Rel(admin, teams, "Asks questions", "Chat")
+Rel(teams, aiops, "Routes server-specific questions", "Bot Framework / API")
+Rel(sre, aiops, "Uses APIs, dashboards, remediation workflows", "HTTPS")
+Rel(aiops, siem, "Shares correlated incident signals", "Webhook / API")
+Rel(aiops, cmdb, "Reads change and asset metadata", "API")
+UpdateElementStyle(aiops, $bgColor="#7C3AED", $fontColor="#FFFFFF", $borderColor="#4C1D95")
+UpdateElementStyle(teams, $bgColor="#2563EB", $fontColor="#FFFFFF", $borderColor="#1E3A8A")
+UpdateElementStyle(siem, $bgColor="#DC2626", $fontColor="#FFFFFF", $borderColor="#7F1D1D")
+UpdateElementStyle(cmdb, $bgColor="#059669", $fontColor="#FFFFFF", $borderColor="#064E3B")
+UpdateRelStyle(admin, teams, $textColor="#0F172A", $lineColor="#3B82F6")
+UpdateRelStyle(teams, aiops, $textColor="#4C1D95", $lineColor="#8B5CF6")
+```
+
+### 2) C4 Level 2 — Container Diagram
+
+```mermaid
+C4Container
+title Phi-4 AIOps Copilot - Container Diagram
+Person(admin, "IT Administrator")
+System_Ext(teams, "Microsoft Teams")
+System_Ext(monitor, "Azure Monitor / Event Sources")
+System_Ext(vsphere, "VMware vSphere")
+System_Ext(azure, "Azure Platform")
+System_Boundary(aiops_boundary, "Phi-4 AIOps Platform") {
+  Container(bot, "Teams Bot Adapter", "Python / Bot Framework", "Accepts @server queries and forwards to API")
+  Container(api, "AIOps API", "FastAPI", "Ingests logs, performs retrieval, returns root cause + remediation")
+  Container(rag, "RAG Engine", "FAISS + Sentence Transformers", "Indexes and searches operational evidence")
+  ContainerDb(logs, "Log Store", "JSONL / Filesystem", "Local Windows event and app log archive")
+  Container(model, "Model Runtime", "Ollama + Phi-4", "Local private inference")
+  Container(ci, "CI/CD Pipelines", "GitHub Actions + Terraform", "Deploys Azure/VMware stacks and validates code")
+}
+Rel(admin, teams, "Chats", "Text")
+Rel(teams, bot, "Delivers chat activity", "HTTPS")
+Rel(bot, api, "Calls /query", "JSON/HTTPS")
+Rel(api, rag, "Indexes/searches", "Python")
+Rel(api, model, "Generates analysis", "HTTP localhost")
+Rel(api, logs, "Reads/writes operational logs", "File I/O")
+Rel(monitor, api, "Provides telemetry context", "API")
+Rel(ci, azure, "Applies terraform/azure", "IaC")
+Rel(ci, vsphere, "Applies terraform/vmware", "IaC")
+UpdateElementStyle(bot, $bgColor="#0EA5E9", $fontColor="#FFFFFF", $borderColor="#075985")
+UpdateElementStyle(api, $bgColor="#8B5CF6", $fontColor="#FFFFFF", $borderColor="#4C1D95")
+UpdateElementStyle(rag, $bgColor="#10B981", $fontColor="#052E2B", $borderColor="#065F46")
+UpdateElementStyle(model, $bgColor="#F59E0B", $fontColor="#1F2937", $borderColor="#92400E")
+UpdateElementStyle(logs, $bgColor="#EF4444", $fontColor="#FFFFFF", $borderColor="#7F1D1D")
+UpdateElementStyle(ci, $bgColor="#6366F1", $fontColor="#FFFFFF", $borderColor="#312E81")
+```
+
+### 3) C4 Level 3 — Component Diagram (AIOps API)
+
+```mermaid
+C4Component
+title Phi-4 AIOps API - Component Diagram
+Container_Boundary(api, "AIOps API (FastAPI)") {
+  Component(http, "REST Controller", "main.py", "Exposes /health, /ingest/{server}, /query")
+  Component(service, "Copilot Service", "service.py", "Orchestrates ingestion, retrieval, reasoning")
+  Component(vs, "Vector Store Adapter", "rag/vector_store.py", "FAISS index and similarity search")
+  Component(ollama, "Ollama Client", "integrations/ollama_client.py", "Calls Phi-4 model runtime")
+  Component(azuremon, "Azure Monitor Ingestor", "integrations/azure_monitor.py", "Optional workspace query integration")
+  Component(models, "Domain Models", "models.py", "Typed request/response contracts")
+}
+System_Ext(fs, "Windows Log Files", "JSONL from scheduled collectors")
+System_Ext(model, "Ollama Runtime", "Local Phi-4 inference")
+System_Ext(teams, "Teams Bot", "Query channel")
+Rel(teams, http, "POST /query")
+Rel(http, service, "Invokes")
+Rel(service, models, "Uses DTOs")
+Rel(service, vs, "Upsert/search evidence")
+Rel(service, ollama, "Generate structured analysis")
+Rel(service, azuremon, "Pulls optional cloud telemetry")
+Rel(service, fs, "Reads ingested logs")
+Rel(ollama, model, "HTTP /api/generate")
+UpdateElementStyle(http, $bgColor="#2563EB", $fontColor="#FFFFFF", $borderColor="#1E3A8A")
+UpdateElementStyle(service, $bgColor="#7C3AED", $fontColor="#FFFFFF", $borderColor="#4C1D95")
+UpdateElementStyle(vs, $bgColor="#059669", $fontColor="#FFFFFF", $borderColor="#064E3B")
+UpdateElementStyle(ollama, $bgColor="#F97316", $fontColor="#FFFFFF", $borderColor="#7C2D12")
+UpdateElementStyle(azuremon, $bgColor="#0EA5E9", $fontColor="#06283D", $borderColor="#075985")
+UpdateElementStyle(models, $bgColor="#E11D48", $fontColor="#FFFFFF", $borderColor="#881337")
+```
+
+### 4) C4 Level 4-style Deployment View (Azure + VMware)
+
+```mermaid
+C4Deployment
+title Phi-4 AIOps Copilot - Deployment Diagram (Dual Runtime)
+Deployment_Node(admin_laptop, "Admin Workstation", "Windows/macOS", "Ops engineer endpoint") {
+  Container_Boundary(client_tools, "Client Tools") {
+    Container(teams_client, "Teams Client", "Desktop/Web", "Conversational query UI")
+  }
+}
+Deployment_Node(azure_env, "Azure Subscription", "Cloud", "Scenario A") {
+  Deployment_Node(azure_vm, "Windows Server VM", "IaaS VM", "Primary AIOps node") {
+    Container(api, "AIOps API", "FastAPI")
+    Container(model, "Ollama + Phi-4", "Local model runtime")
+    Container(logcollector, "Event Collector", "PowerShell Scheduled Task")
+    ContainerDb(local_logs, "Local Log Archive", "JSONL")
+  }
+}
+Deployment_Node(vmw_env, "vSphere Datacenter", "On-prem", "Scenario B") {
+  Deployment_Node(vmw_vm, "Windows Server VM", "Cloned from Template", "On-prem AIOps node") {
+    Container(api2, "AIOps API", "FastAPI")
+    Container(model2, "Ollama + Phi-4", "Local model runtime")
+    Container(logcollector2, "Event Collector", "PowerShell Scheduled Task")
+    ContainerDb(local_logs2, "Local Log Archive", "JSONL")
+  }
+}
+Rel(teams_client, api, "Query incidents", "HTTPS")
+Rel(teams_client, api2, "Query incidents", "HTTPS/VPN")
+Rel(api, model, "Inference")
+Rel(api, local_logs, "Reads evidence")
+Rel(logcollector, local_logs, "Writes logs")
+Rel(api2, model2, "Inference")
+Rel(api2, local_logs2, "Reads evidence")
+Rel(logcollector2, local_logs2, "Writes logs")
+UpdateElementStyle(api, $bgColor="#8B5CF6", $fontColor="#FFFFFF", $borderColor="#4C1D95")
+UpdateElementStyle(api2, $bgColor="#8B5CF6", $fontColor="#FFFFFF", $borderColor="#4C1D95")
+UpdateElementStyle(model, $bgColor="#F59E0B", $fontColor="#111827", $borderColor="#92400E")
+UpdateElementStyle(model2, $bgColor="#F59E0B", $fontColor="#111827", $borderColor="#92400E")
+UpdateElementStyle(local_logs, $bgColor="#EF4444", $fontColor="#FFFFFF", $borderColor="#7F1D1D")
+UpdateElementStyle(local_logs2, $bgColor="#EF4444", $fontColor="#FFFFFF", $borderColor="#7F1D1D")
+```
+
+---
+
 ## Repository structure
 
 ```text
