@@ -180,6 +180,7 @@ UpdateElementStyle(local_logs2, $bgColor="#EF4444", $fontColor="#FFFFFF", $borde
 
 ```text
 .
+├── docs/wiki/                 # Structured student-style GitHub Wiki documentation
 ├── terraform/
 │   ├── azure/                 # Azure VM + network + monitor workspace + AMA extension
 │   └── vmware/                # vSphere VM cloning + guest customization
@@ -196,6 +197,16 @@ UpdateElementStyle(local_logs2, $bgColor="#EF4444", $fontColor="#FFFFFF", $borde
 │       └── teams_bot.py
 └── .github/workflows/         # CI + deployment pipelines
 ```
+
+---
+
+## GitHub Wiki style student guide
+
+For structured, professional, student-friendly documentation, start here:
+
+- [`docs/wiki/Home.md`](docs/wiki/Home.md)
+
+The guide covers architecture, prerequisites, Azure/VMware deployment, bootstrap, API usage, Teams integration, troubleshooting, hardening, and FAQ in a step-by-step learning path.
 
 ---
 
